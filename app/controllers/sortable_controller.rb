@@ -7,7 +7,7 @@ class SortableController < ApplicationController
     puts "\n\n----\ntest sort reorder 1.1.0", params.inspect, "----\n\n"
     klass, ids = parse_params
     attr = klass.sort_attribute
-    if params[:event_id] != "undefined"
+    if params[:event_id]
       models = klass.where(event_id: params[:event_id]).order(attr).to_a
     else
       models = klass.order(attr).to_a
