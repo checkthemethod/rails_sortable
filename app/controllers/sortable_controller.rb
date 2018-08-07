@@ -12,7 +12,7 @@ class SortableController < ApplicationController
     else
       models = klass.order(attr).to_a
     end
-    puts "----\ntest sort reorder 1.1.0 - LOADED #{models.count} models----\n\n"
+    puts "----\ntest sort reorder 1.1.0 on branch - LOADED #{models.count} models----\n\n"
     ids.each_with_index do |id, new_sort|
       model = models.find {|m| m.id == id }
       model.update_sort!(new_sort) if model.read_attribute(attr) != new_sort
