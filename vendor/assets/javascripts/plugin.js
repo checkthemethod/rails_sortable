@@ -7,12 +7,9 @@
     };
 
     var setting = $.extend(defaults, options);
-    var that = this;
     setting["update"] = function() {
       var payload = $(this).sortable('serialize');
-      var eventId = $(that).data('event-id')
-      console.log('that: ' + $(that))
-      console.log('event id: ' + $(that).data('event-id'))
+      var eventId = $(this).data('event-id')
       payload = payload + (eventId == undefined ? '' : "&event_id=" + eventId )
       $.post("/sortable/reorder", payload)
     }
